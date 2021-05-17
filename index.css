@@ -37,6 +37,12 @@ code {
    background-color: blue;
    color: white;
 }
+.button-delete{
+  width: 50px;
+  height: 20px;
+  background-color: red;
+  color:white;
+}
 .filter{
   margin-top: 20px;
   margin-bottom: 50px;
@@ -52,4 +58,11 @@ code {
 .todo{
   height: 30px;
   width: 200px;
+}
+.completed{
+  font-size: medium;
+  color: green;
+}
+.not-completed{
+   font-size: medium;
 }
