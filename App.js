@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 
 function App(props) {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   const addTodo = (title) => {
     let newTodo = {
@@ -16,7 +17,7 @@ function App(props) {
       title,
       completed: false,
     };
-
+    console.log(newTodo.id);
     setTodos([...todos, newTodo]);
   };
 
@@ -30,13 +31,26 @@ function App(props) {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
+  
   };
+
+  const showAll = () => {
+    setFilter("all");
+  }
+
+  const showDone = () => {
+    setFilter("done");
+  }
+
+  const showActive = () => {
+    setFilter("active");
+  }
 
   return (
     <div className="container">
       <Create addTodo={addTodo} />
-      <Filter />
-      <ToDoList  todos={todos} delTodo={delTodo} markComplete={markComplete}/>
+      <Filter showAll={showAll} showDone={showDone} showActive={showActive} />
+      <ToDoList todos={todos} delTodo={delTodo} markComplete={markComplete} filter={filter}/>
     </div>
   );
 }
