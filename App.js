@@ -31,7 +31,7 @@ function App(props) {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  
+
   };
 
   const showAll = () => {
@@ -50,7 +50,7 @@ function App(props) {
     <div className="container">
       <Create addTodo={addTodo} />
       <Filter showAll={showAll} showDone={showDone} showActive={showActive} />
-      <ToDoList todos={todos} delTodo={delTodo} markComplete={markComplete} filter={filter}/>
+      <ToDoList todos={todos} delTodo={delTodo} markComplete={markComplete} filter={filter} />
     </div>
   );
 }
