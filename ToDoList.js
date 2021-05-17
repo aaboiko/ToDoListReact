@@ -6,17 +6,17 @@ function ToDoList(props) {
 
     function filterTodos(todo) {
         switch (filter){
-          case "done": return todo.completed ? true : false;
-          case "active": return todo.completed ? false : true;
+          case "done": return todo.completed;
+          case "active": return !todo.completed;
           default: return true;
         }
         
     }
 
     return (
-        <div className="div-list">
+        <div >
             {props.todos.length > 0 ? (
-                <ul >
+                <ul className="div-list">
                     {props.todos.filter(filterTodos).map((todo) => (
                         <TodoItem
                             key={todo.id}
