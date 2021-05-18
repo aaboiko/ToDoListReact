@@ -14,9 +14,8 @@ function ToDoList(props) {
     }
 
     return (
-        <div >
-            {props.todos.length > 0 ? (
-                <ul className="div-list">
+        <section className="main">
+            <ul className="todo-list">
                     {props.todos.filter(filterTodos).map((todo) => (
                         <TodoItem
                             key={todo.id}
@@ -26,10 +25,7 @@ function ToDoList(props) {
                         />
                     ))}
                 </ul>
-            ) : (
-                <p> There is no todos now</p>
-            )}
-        </div>
+        </section>
     );
 }
 

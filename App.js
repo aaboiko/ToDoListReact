@@ -25,6 +25,10 @@ function App(props) {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const deleteCompleted = () => {
+    setTodos(todos.filter((todo) => !todo.completed));
+  }
+
   const markComplete = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -47,11 +51,16 @@ function App(props) {
   }
 
   return (
-    <div className="container">
-      <Create addTodo={addTodo} />
-      <Filter showAll={showAll} showDone={showDone} showActive={showActive} />
+    <section className="todoapp">
+      <header className="header">
+        <h1>Todos</h1>
+        <Create addTodo={addTodo} />
+      </header>
       <ToDoList todos={todos} delTodo={delTodo} markComplete={markComplete} filter={filter} />
-    </div>
+      <footer className="footer">
+        <Filter showAll={showAll} showDone={showDone} showActive={showActive} deleteCompleted={deleteCompleted}/>
+      </footer>
+    </section>
   );
 }
 

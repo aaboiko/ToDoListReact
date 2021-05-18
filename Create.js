@@ -16,21 +16,21 @@ function Create(props) {
   };
 
   return (
-    <div >
-      <form onSubmit={onSubmit} >
+    <section className="create">
+      <form onSubmit={onSubmit}>
         <input
           name="task-title"
           type="text"
-          className="input"
-          placeholder="Add todo..."
+          className="input-create"
+          placeholder="What needs to be done?"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <button
-          type="submit" className="button-add">Add
+          type="submit" className="button-add">+
         </button>
       </form>
-    </div>
+    </section>
   );
 }
 
