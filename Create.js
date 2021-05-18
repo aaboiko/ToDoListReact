@@ -6,29 +6,26 @@ function Create(props) {
   function onSubmit (event) {
     event.preventDefault();
 
-    if (!title) {
+    if (!title.trim()) {
       alert("Please add a task description.");
       return;
     }
-
     props.addTodo(title);
     setTitle("");
   };
 
   return (
-    <section className="create">
+    <section >
       <form onSubmit={onSubmit}>
         <input
           name="task-title"
           type="text"
-          className="input-create"
+          className="new-todo"
           placeholder="What needs to be done?"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
+          autoFocus
         />
-        <button
-          type="submit" className="button-add">+
-        </button>
       </form>
     </section>
   );

@@ -38,16 +38,18 @@ function App(props) {
 
   };
 
-  const showAll = () => {
-    setFilter("all");
-  }
-
-  const showDone = () => {
-    setFilter("done");
-  }
-
-  const showActive = () => {
-    setFilter("active");
+  const filterItems = (filter) => {
+    switch (filter) {
+      case "done":
+        setFilter("done");
+        break;
+      case "active":
+        setFilter("active");
+        break;
+      default:
+        setFilter("all");
+        break;
+    }
   }
 
   return (
@@ -58,7 +60,8 @@ function App(props) {
       </header>
       <ToDoList todos={todos} delTodo={delTodo} markComplete={markComplete} filter={filter} />
       <footer className="footer">
-        <Filter showAll={showAll} showDone={showDone} showActive={showActive} deleteCompleted={deleteCompleted}/>
+        <Filter showAll={() => filterItems("all")} showDone={() => filterItems("done")} showActive={() => filterItems("active")} 
+        deleteCompleted={deleteCompleted} todos={todos} />
       </footer>
     </section>
   );

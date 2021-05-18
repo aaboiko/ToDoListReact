@@ -16,7 +16,8 @@ function ToDoList(props) {
     return (
         <section className="main">
             <ul className="todo-list">
-                    {props.todos.filter(filterTodos).map((todo) => (
+                   <div className="view">
+                   {props.todos.filter(filterTodos).map((todo) => (
                         <TodoItem
                             key={todo.id}
                             todo={todo}
@@ -24,6 +25,7 @@ function ToDoList(props) {
                             delTodo={props.delTodo}
                         />
                     ))}
+                   </div>
                 </ul>
         </section>
     );

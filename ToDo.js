@@ -6,14 +6,13 @@ function ToDo(props) {
 
     return (
         <li className="todo">
-            <section>
-            <input name="completed-checkbox" className="checkbox"
-                    type="checkbox"
-                    checked={props.todo.completed}
-                    value={props.todo.completed}
-                    onChange={() => props.markComplete(props.todo.id)}></input>
-                <p className={textDecorationClass}>{props.todo.title}</p>
-            </section>
+            <input name="completed-checkbox" className="toggle"
+                type="checkbox"
+                checked={props.todo.completed}
+                value={props.todo.completed}
+                onChange={() => props.markComplete(props.todo.id)}></input>
+            <label className={textDecorationClass}>{props.todo.title}</label>
+            <button onClick={() => props.delTodo(props.todo.id)} className="destroy"></button>
         </li>
     )
 }
